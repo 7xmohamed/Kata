@@ -1,0 +1,24 @@
+# AI Assistant Configuration
+.gemini/
+.agent/
+.qoder/
+AGENTS.md
+skills-lock.json
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
