@@ -3,12 +3,12 @@ name: learn
 description: "Runs a six-phase research workflow to turn unfamiliar domains or collected sources into publish-ready output. Not for quick lookups or single-file reads."
 when_to_use: "research, deep dive, help me understand, compile sources, unfamiliar domain, synthesize into article"
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Learn: From Raw Materials to Published Output
 
-Prefix your first line with 🥷 inline, not as its own paragraph.
+Prefix your first line with ⚔️ inline, not as its own paragraph.
 
 
 Collect, organize, translate, explain, structure. Support the user's thinking; do not replace it.

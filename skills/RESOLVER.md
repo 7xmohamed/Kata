@@ -12,6 +12,7 @@ Routing table from trigger phrases to skills. The AI CLI matches automatically v
 |---------|-------|
 | New feature / architecture decision / "how should I design this" / "should I build this" / "is it worth it" | `skills/think/SKILL.md` |
 | UI / component / page / visual interface / frontend | `skills/design/SKILL.md` |
+| System-wide design / data flow / scaling / multi-service | `skills/think/SKILL.md` (Architecture Mode) |
 
 ### Post-build
 
@@ -19,12 +20,15 @@ Routing table from trigger phrases to skills. The AI CLI matches automatically v
 |---------|-------|
 | Done implementing / before merging / "review this" / "look at this code" | `skills/check/SKILL.md` |
 | Review issue / review PR / triage / "check if there are issues" | `skills/check/SKILL.md` (Triage Mode) |
+| Security audit / vulnerability check / threat model | `skills/check/SKILL.md` (Security Mode) |
+| Architecture compliance / design-to-code validation | `skills/check/SKILL.md` (Architecture Review Mode) |
 
 ### Diagnostic
 
 | Trigger | Skill |
 |---------|-------|
 | Error / crash / test failing / unexpected behavior / "why is this not working" | `skills/hunt/SKILL.md` |
+| Root cause analysis / systematic debugging | `skills/hunt/SKILL.md` (RCA Mode) |
 | AI ignoring instructions / hook not firing / MCP issue / config audit | `skills/health/SKILL.md` |
 
 ### Content
@@ -34,18 +38,21 @@ Routing table from trigger phrases to skills. The AI CLI matches automatically v
 | Message contains http(s) URL / any web link / PDF path / "read this" / "summarize this" | `skills/read/SKILL.md` |
 | Writing / editing / polishing / "make this sound better" / "remove AI tone" | `skills/write/SKILL.md` |
 | Deep research on an unfamiliar domain / six-phase research to draft / synthesizing sources into an article | `skills/learn/SKILL.md` |
+| Merging conflicting sources / state-of-the-art synthesis | `skills/learn/SKILL.md` (Synthesis Mode) |
 
 ## Disambiguation
 
 When multiple skills could match, apply these rules in order:
 
 1. **Most specific wins**: `/design` is more specific than `/think` (UI decisions only). If the user says "design a login page", use `/design`.
-2. **URL routes to content type**: Message has URL → `/read` first to get Markdown → if it's long research material, chain to `/learn`; if it just needs a quick summary, stop at `/read` output.
-3. **Fix vs review**: Code is delivered or at PR stage → `/check`; code doesn't run or behaves wrong → `/hunt`. Both could match "look at this", so decide by checking if there's a concrete error symptom.
-4. **Config vs code error**: AI ignoring instructions / hooks not firing / MCP broken → `/health`; user's code throwing an exception → `/hunt`.
-5. **Long-form output vs polish**: Writing from scratch to a finished draft → `/learn`; already have a draft and want it edited → `/write`.
-6. **Judgment vs debugging**: "Should I keep this?" + no error → `/think` Evaluation Mode; "Why doesn't this work?" + error → `/hunt`.
-7. **Fallback**: When both still seem ambiguous, read both SKILL.md "Not for" sections and use the exclusion clauses to decide. Still ambiguous? Ask the user.
+2. **Architecture vs Feature**: If the request affects multiple services or global data flow → `/think` (Architecture Mode). If it's a single feature → `/think` (Lightweight/Full).
+3. **Security vs Review**: If the focus is "will this break" or "is it clean" → `/check`. If the focus is "can this be hacked" or "leak data" → `/check` (Security Mode).
+4. **URL routes to content type**: Message has URL → `/read` first to get Markdown → if it's long research material, chain to `/learn`; if it just needs a quick summary, stop at `/read` output.
+5. **Fix vs review**: Code is delivered or at PR stage → `/check`; code doesn't run or behaves wrong → `/hunt`. Both could match "look at this", so decide by checking if there's a concrete error symptom.
+6. **Config vs code error**: AI ignoring instructions / hooks not firing / MCP broken → `/health`; user's code throwing an exception → `/hunt`.
+7. **Long-form output vs polish**: Writing from scratch to a finished draft → `/learn`; already have a draft and want it edited → `/write`.
+8. **Judgment vs debugging**: "Should I keep this?" + no error → `/think` Evaluation Mode; "Why doesn't this work?" + error → `/hunt`.
+9. **Fallback**: When both still seem ambiguous, read both SKILL.md "Not for" sections and use the exclusion clauses to decide. Still ambiguous? Ask the user.
 
 ## Chaining
 

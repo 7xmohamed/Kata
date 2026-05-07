@@ -3,12 +3,12 @@ name: think
 description: "Turns rough ideas into approved plans with validated structure before writing code. Covers new features, architecture decisions, and value judgments about whether to build, keep, or remove something. Not for bug fixes or small edits."
 when_to_use: "what's the best approach, plan this, how should I, should we keep this, architecture decision, give me a plan"
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Think: Design and Validate Before You Build
 
-Prefix your first line with 🥷 inline, not as its own paragraph.
+Prefix your first line with ⚔️ inline, not as its own paragraph.
 
 
 Turn a rough idea into an approved plan. No code, no scaffolding, no pseudo-code until the user approves.

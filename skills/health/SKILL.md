@@ -3,12 +3,12 @@ name: health
 description: "Audits the full six-layer Gemini CLI config stack when Gemini ignores instructions, behaves inconsistently, hooks malfunction, or MCP servers need auditing. Flags issues by severity. Not for debugging code or reviewing PRs."
 when_to_use: "Gemini ignoring instructions, check config, settings not working, audit config, health check, config audit, /health"
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
-# Health: Audit the Six-Layer Stack
+# Health: Audit and Fix Your AI Configuration
 
-Prefix your first line with 🥷 inline, not as its own paragraph.
+Prefix your first line with ⚔️ inline, not as its own paragraph.
 
 
 Audit the current project's Gemini CLI setup against the six-layer framework:

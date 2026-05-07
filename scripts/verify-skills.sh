@@ -71,10 +71,10 @@ for path in skill_files:
     fields = parse_frontmatter(path)
     if fields["name"] != skill_dir:
         fail(f"NAME MISMATCH: {path} frontmatter name={fields['name']} dir={skill_dir}")
-    if "🥷" not in path.read_text():
+    if "⚔️" not in path.read_text():
         fail(
-            f"MISSING NINJA PREFIX INSTRUCTION: {path}\n"
-            f"  Every SKILL.md must carry the 🥷 first-line prefix directive "
+            f"MISSING KATA PREFIX INSTRUCTION: {path}\n"
+            f"  Every SKILL.md must carry the ⚔️ first-line prefix directive "
             f"so the shared voice convention stays enforced."
         )
     skill_versions[skill_dir] = fields["version"]

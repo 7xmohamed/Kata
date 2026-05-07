@@ -1,6 +1,6 @@
-# Kata
+# Kata 1.1 ⚔️
 
-Personal skill collection for Gemini CLI. Eight skills covering the complete engineering workflow: think, design, check, hunt, write, learn, read, health.
+Personal skill collection for Gemini CLI. Eight skills covering the complete engineering workflow: think, design, check, hunt, write, learn, read, health. Now with advanced Architecture, Security, and Synthesis modes.
 
 ## Structure
 
