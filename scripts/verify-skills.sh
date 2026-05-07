@@ -81,54 +81,56 @@ for path in skill_files:
     skill_descriptions[skill_dir] = fields["description"]
     print(f"ok: {path.as_posix()}")
 
-marketplace = json.load(open(root / ".gemini-plugin" / "marketplace.json"))
-plugins = marketplace.get("plugins")
-if not isinstance(plugins, list):
-    fail("INVALID MARKETPLACE: plugins must be a list")
+for market_dir in (".gemini-plugin", ".claude-plugin", ".codex-plugin"):
+    market_path = root / market_dir / "marketplace.json"
+    marketplace = json.load(open(market_path))
+    plugins = marketplace.get("plugins")
+    if not isinstance(plugins, list):
+        fail(f"INVALID MARKETPLACE: {market_path} plugins must be a list")
 
-market_versions: dict[str, str] = {}
-market_descriptions: dict[str, str] = {}
-for entry in plugins:
-    if not isinstance(entry, dict):
-        fail("INVALID MARKETPLACE: plugin entry must be an object")
-    name = entry.get("name")
-    version = entry.get("version")
-    source = entry.get("source")
-    description = entry.get("description", "").strip().strip('"')
-    if not name or not version:
-        fail("INVALID MARKETPLACE: every plugin needs name and version")
-    if not description:
-        fail(f"MISSING DESCRIPTION: marketplace plugin {name}")
-    if name in market_versions:
-        fail(f"DUPLICATE MARKETPLACE ENTRY: {name}")
-    expected_source = f"./skills/{name}"
-    if source != expected_source:
-        fail(f"WRONG SOURCE: {name} source={source!r} expected={expected_source!r}")
-    market_versions[name] = version
-    market_descriptions[name] = description
+    market_versions: dict[str, str] = {}
+    market_descriptions: dict[str, str] = {}
+    for entry in plugins:
+        if not isinstance(entry, dict):
+            fail(f"INVALID MARKETPLACE: {market_path} plugin entry must be an object")
+        name = entry.get("name")
+        version = entry.get("version")
+        source = entry.get("source")
+        description = entry.get("description", "").strip().strip('"')
+        if not name or not version:
+            fail(f"INVALID MARKETPLACE: {market_path} every plugin needs name and version")
+        if not description:
+            fail(f"MISSING DESCRIPTION: {market_path} plugin {name}")
+        if name in market_versions:
+            fail(f"DUPLICATE MARKETPLACE ENTRY: {market_path} {name}")
+        expected_source = f"./skills/{name}"
+        if source != expected_source:
+            fail(f"WRONG SOURCE: {market_path} {name} source={source!r} expected={expected_source!r}")
+        market_versions[name] = version
+        market_descriptions[name] = description
 
-missing_from_market = sorted(set(skill_versions) - set(market_versions))
-if missing_from_market:
-    fail("NOT IN MARKETPLACE: " + ", ".join(missing_from_market))
+    missing_from_market = sorted(set(skill_versions) - set(market_versions))
+    if missing_from_market:
+        fail(f"NOT IN MARKETPLACE {market_path}: " + ", ".join(missing_from_market))
 
-extra_in_market = sorted(set(market_versions) - set(skill_versions))
-if extra_in_market:
-    fail("MISSING SKILL DIRECTORY: " + ", ".join(extra_in_market))
+    extra_in_market = sorted(set(market_versions) - set(skill_versions))
+    if extra_in_market:
+        fail(f"MISSING SKILL DIRECTORY for {market_path}: " + ", ".join(extra_in_market))
 
-for skill, skill_version in sorted(skill_versions.items()):
-    market_version = market_versions[skill]
-    if skill_version != market_version:
-        fail(f"VERSION MISMATCH: {skill} SKILL={skill_version} MARKET={market_version}")
-    # marketplace description may append TRIGGER/SKIP lines after the
-    # core SKILL.md description, so check prefix containment, not exact match.
-    if not market_descriptions[skill].startswith(skill_descriptions[skill]):
-        fail(
-            f"DESCRIPTION MISMATCH: {skill}\n"
-            f"  SKILL.md:    {skill_descriptions[skill]}\n"
-            f"  marketplace: {market_descriptions[skill]}\n"
-            f"  marketplace description must start with the SKILL.md description"
-        )
-    print(f"ok: {skill} {skill_version}")
+    for skill, skill_version in sorted(skill_versions.items()):
+        market_version = market_versions[skill]
+        if skill_version != market_version:
+            fail(f"VERSION MISMATCH in {market_path}: {skill} SKILL={skill_version} MARKET={market_version}")
+        # marketplace description may append TRIGGER/SKIP lines after the
+        # core SKILL.md description, so check prefix containment, not exact match.
+        if not market_descriptions[skill].startswith(skill_descriptions[skill]):
+            fail(
+                f"DESCRIPTION MISMATCH in {market_path}: {skill}\n"
+                f"  SKILL.md:    {skill_descriptions[skill]}\n"
+                f"  marketplace: {market_descriptions[skill]}\n"
+                f"  marketplace description must start with the SKILL.md description"
+            )
+    print(f"ok: {market_dir} marketplace")
 
 import re
 # Direct local references: `references/foo.md`, `agents/bar.md`, `scripts/baz.sh`

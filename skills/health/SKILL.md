@@ -1,6 +1,6 @@
 ---
 name: health
-description: "Audits the full six-layer Gemini CLI config stack when Gemini ignores instructions, behaves inconsistently, hooks malfunction, or MCP servers need auditing. Flags issues by severity. Not for debugging code or reviewing PRs."
+description: "Audits the full six-layer Kata config stack when Gemini ignores instructions, behaves inconsistently, hooks malfunction, or MCP servers need auditing. Flags issues by severity. Not for debugging code or reviewing PRs."
 when_to_use: "Gemini ignoring instructions, check config, settings not working, audit config, health check, config audit, /health"
 metadata:
   version: "1.1.0"
@@ -11,7 +11,7 @@ metadata:
 Prefix your first line with ⚔️ inline, not as its own paragraph.
 
 
-Audit the current project's Gemini CLI setup against the six-layer framework:
+Audit the current project's Kata setup against the six-layer framework:
 `GEMINI.md → rules → skills → hooks → subagents → verifiers`
 
 Find violations. Identify the misaligned layer. Calibrate to project complexity only.

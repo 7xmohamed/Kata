@@ -1,7 +1,7 @@
 {
   "$schema": "https://google.com/gemini-cli/marketplace.schema.json",
   "name": "kata",
-  "description": "Personal skill collection for Gemini CLI: think, check, hunt, design, read, write, learn, health.",
+  "description": "Personal skill collection for Kata: think, check, hunt, design, read, write, learn, health.",
   "owner": {
     "name": "7xmohamed",
     "email": "7xmohamed.dev@gmail.com"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "health",
-      "description": "Audits the full six-layer Gemini CLI config stack when Gemini ignores instructions, behaves inconsistently, hooks malfunction, or MCP servers need auditing. Flags issues by severity. Not for debugging code or reviewing PRs.",
+      "description": "Audits the full six-layer Kata config stack when Gemini ignores instructions, behaves inconsistently, hooks malfunction, or MCP servers need auditing. Flags issues by severity. Not for debugging code or reviewing PRs.",
       "version": "1.1.0",
       "category": "development",
       "source": "./skills/health",
