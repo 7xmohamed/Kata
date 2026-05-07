@@ -102,30 +102,30 @@ for market_dir in (".gemini-plugin", ".claude-plugin", ".codex-plugin"):
         if not description:
             fail(f"MISSING DESCRIPTION: {market_path} plugin {name}")
         if name in market_versions:
-            fail(f"DUPLICATE MARKETPLACE ENTRY: {market_path} {name}")
+            fail(f"DUPLICATE MARKETPLACE ENTRY: {name} in {market_path}")
         expected_source = f"./skills/{name}"
         if source != expected_source:
-            fail(f"WRONG SOURCE: {market_path} {name} source={source!r} expected={expected_source!r}")
+            fail(f"WRONG SOURCE: {name} in {market_path} source={source!r} expected={expected_source!r}")
         market_versions[name] = version
         market_descriptions[name] = description
 
     missing_from_market = sorted(set(skill_versions) - set(market_versions))
     if missing_from_market:
-        fail(f"NOT IN MARKETPLACE {market_path}: " + ", ".join(missing_from_market))
+        fail(f"NOT IN MARKETPLACE: {', '.join(missing_from_market)} in {market_path}")
 
     extra_in_market = sorted(set(market_versions) - set(skill_versions))
     if extra_in_market:
-        fail(f"MISSING SKILL DIRECTORY for {market_path}: " + ", ".join(extra_in_market))
+        fail(f"MISSING SKILL DIRECTORY: {', '.join(extra_in_market)} for {market_path}")
 
     for skill, skill_version in sorted(skill_versions.items()):
         market_version = market_versions[skill]
         if skill_version != market_version:
-            fail(f"VERSION MISMATCH in {market_path}: {skill} SKILL={skill_version} MARKET={market_version}")
+            fail(f"VERSION MISMATCH: {skill} in {market_path} SKILL={skill_version} MARKET={market_version}")
         # marketplace description may append TRIGGER/SKIP lines after the
         # core SKILL.md description, so check prefix containment, not exact match.
         if not market_descriptions[skill].startswith(skill_descriptions[skill]):
             fail(
-                f"DESCRIPTION MISMATCH in {market_path}: {skill}\n"
+                f"DESCRIPTION MISMATCH: {skill} in {market_path}\n"
                 f"  SKILL.md:    {skill_descriptions[skill]}\n"
                 f"  marketplace: {market_descriptions[skill]}\n"
                 f"  marketplace description must start with the SKILL.md description"
