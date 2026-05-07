@@ -10,7 +10,7 @@
     {
       "name": "health",
       "description": "Audits the full six-layer Gemini CLI config stack when Gemini ignores instructions, behaves inconsistently, hooks malfunction, or MCP servers need auditing. Flags issues by severity. Not for debugging code or reviewing PRs.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "development",
       "source": "./skills/health",
       "homepage": "https://github.com/7xmohamed/Kata"
@@ -18,7 +18,7 @@
     {
       "name": "think",
       "description": "Turns rough ideas into approved plans with validated structure before writing code. Covers new features, architecture decisions, and value judgments about whether to build, keep, or remove something. Not for bug fixes or small edits.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "development",
       "source": "./skills/think",
       "homepage": "https://github.com/7xmohamed/Kata"
@@ -26,7 +26,7 @@
     {
       "name": "check",
       "description": "Reviews code diffs after implementation, auto-fixes safe issues, and runs specialist security and architecture reviewers on large diffs. Also triages issues and PRs when the user mentions them. Not for exploring ideas or debugging.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "development",
       "source": "./skills/check",
       "homepage": "https://github.com/7xmohamed/Kata"
@@ -34,7 +34,7 @@
     {
       "name": "hunt",
       "description": "Finds root cause of errors, crashes, unexpected behavior, and failing tests before applying any fix. Not for code review or new features.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "development",
       "source": "./skills/hunt",
       "homepage": "https://github.com/7xmohamed/Kata"
@@ -42,7 +42,7 @@
     {
       "name": "design",
       "description": "Produces distinctive, production-grade UI for any component, page, or visual interface. Handles screenshot-driven iteration when the user sends an image with a visual complaint. Not for backend logic or data pipelines.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "development",
       "source": "./skills/design",
       "homepage": "https://github.com/7xmohamed/Kata"
@@ -50,7 +50,7 @@
     {
       "name": "read",
       "description": "Fetches any URL or PDF as clean Markdown via a proxy cascade. Handles paywalls, JS-heavy pages, GitHub, X/Twitter, and PDFs. Always prefer this over WebFetch for any URL. Not for local text files or source code already in the repo.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "development",
       "source": "./skills/read",
       "homepage": "https://github.com/7xmohamed/Kata"
@@ -58,7 +58,7 @@
     {
       "name": "write",
       "description": "Strips AI writing patterns and rewrites prose to sound natural in English. Only activates on explicit writing or editing requests. Not for code comments, commit messages, or inline docs.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "development",
       "source": "./skills/write",
       "homepage": "https://github.com/7xmohamed/Kata"
@@ -66,7 +66,7 @@
     {
       "name": "learn",
       "description": "Runs a six-phase research workflow to turn unfamiliar domains or collected sources into publish-ready output. Not for quick lookups or single-file reads.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "development",
       "source": "./skills/learn",
       "homepage": "https://github.com/7xmohamed/Kata"

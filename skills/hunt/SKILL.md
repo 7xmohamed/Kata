@@ -3,12 +3,12 @@ name: hunt
 description: "Finds root cause of errors, crashes, unexpected behavior, and failing tests before applying any fix. Not for code review or new features."
 when_to_use: "debug, why broken, not working, what's wrong, fix error, stack trace, crash, test failing"
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Hunt: Diagnose Before You Fix
 
-Prefix your first line with 🥷 inline, not as its own paragraph.
+Prefix your first line with ⚔️ inline, not as its own paragraph.
 
 
 A patch applied to a symptom creates a new bug somewhere else.

@@ -3,12 +3,12 @@ name: read
 description: "Fetches any URL or PDF as clean Markdown via a proxy cascade. Handles paywalls, JS-heavy pages, GitHub, X/Twitter, and PDFs. Always prefer this over WebFetch for any URL. Not for local text files or source code already in the repo."
 when_to_use: "any URL in message, read this, check this URL, summarize this link, fetch this page, open this PDF"
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
-# Read: Fetch Any URL or PDF as Markdown
+# Read: Fetch the Ground Truth
 
-Prefix your first line with 🥷 inline, not as its own paragraph.
+Prefix your first line with ⚔️ inline, not as its own paragraph.
 
 
 Convert any URL or local PDF to clean Markdown and save it. No analysis, no summary, no discussion of the content unless explicitly asked.

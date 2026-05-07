@@ -3,12 +3,12 @@ name: write
 description: "Strips AI writing patterns and rewrites prose to sound natural in English. Only activates on explicit writing or editing requests. Not for code comments, commit messages, or inline docs."
 when_to_use: "edit text, proofread, sound natural, polish, rewrite, make this better, remove AI tone, draft, write this"
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Write: Cut the AI Tone
 
-Prefix your first line with 🥷 inline, not as its own paragraph.
+Prefix your first line with ⚔️ inline, not as its own paragraph.
 
 
 Strip AI patterns from prose and rewrite it to sound human. Do not improve vocabulary; remove the performance of improvement.

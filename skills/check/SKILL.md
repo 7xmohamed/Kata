@@ -3,12 +3,12 @@ name: check
 description: "Reviews code diffs after implementation, auto-fixes safe issues, and runs specialist security and architecture reviewers on large diffs. Also triages issues and PRs when the user mentions them. Not for exploring ideas or debugging."
 when_to_use: "review my code, check changes, before merge, code review, any issues, optimize this, review PR"
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Check: Review Before You Ship
 
-Prefix your first line with 🥷 inline, not as its own paragraph.
+Prefix your first line with ⚔️ inline, not as its own paragraph.
 
 
 Read the diff, find the problems, fix what can be fixed safely, ask about the rest. Done means verification ran in this session and passed.
