@@ -2,6 +2,11 @@
 # Install Kata statusline into Gemini CLI
 set -e
 
+if [ "${OS:-}" = "Windows_NT" ]; then
+  echo "Statusline requires bash. On Windows, use Git Bash or WSL."
+fi
+
+
 GEMINI_DIR="$HOME/.gemini"
 DEST="$GEMINI_DIR/statusline.sh"
 SETTINGS_FILE="$GEMINI_DIR/settings.json"

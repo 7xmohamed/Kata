@@ -1,5 +1,7 @@
 #!/bin/bash
 # Gemini CLI statusline: Context % | 5h: % (reset) | 7d: % (reset)
+# NOTE: This script is bash-only. On Windows, it degrades gracefully by detecting
+# Windows_NT / PowerShell and outputting without ANSI escapes.
 exec 2>/dev/null
 
 CACHE_DIR="$HOME/.cache/kata-statusline"
@@ -82,6 +84,17 @@ YELLOW="\033[33m"
 RED="\033[31m"
 BLUE="\033[94m"
 MAGENTA="\033[95m"
+
+# Windows / PowerShell detection: strip ANSI escape codes for compatibility
+if [ "${OS:-}" = "Windows_NT" ]; then
+  RESET=""
+  DIM=""
+  GREEN=""
+  YELLOW=""
+  RED=""
+  BLUE=""
+  MAGENTA=""
+fi
 
 # Format seconds remaining as "4h23m" or "1d21h"
 format_reset() {
