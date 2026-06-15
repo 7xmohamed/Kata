@@ -18,7 +18,7 @@ skills/
 ├── read/         -- fetch URL or PDF as Markdown
 ├── think/        -- design and validate before building
 └── write/        -- natural prose in English
-    └── references/  -- write-zh.md, write-en.md
+    └── references/  -- write-en.md
 .gemini-plugin/
   marketplace.json    -- plugin registry for npx/plugin distribution
 ```

@@ -117,14 +117,14 @@ rm -f ~/.gemini/rules/english.md
 
 ## Structure
 
-```
+```text
 skills/
 ├── RESOLVER.md        -- central trigger → skill routing table
 ├── check/             -- code review before merging
 │   ├── agents/        -- reviewer-security.md, reviewer-architecture.md
 │   └── references/    -- persona-catalog.md
 ├── design/            -- production-grade frontend UI
-├── health/            -- Gemini CLI config audit
+├── health/            -- AI CLI config audit
 │   └── agents/        -- inspector-context.md, inspector-control.md
 ├── hunt/              -- systematic debugging
 ├── learn/             -- research to published output
@@ -132,18 +132,23 @@ skills/
 ├── think/             -- design and validate before building
 └── write/             -- natural prose in English
     └── references/    -- write-en.md
-.gemini-plugin/
-  marketplace.json     -- plugin registry for npx/plugin distribution
-rules/
-  english.md           -- English coaching rule (always-on)
+.gemini-plugin/        -- Gemini plugin registry
+.claude-plugin/        -- Claude plugin registry
+.codex-plugin/         -- Codex plugin registry
+rules/                 -- Global AI behavior instructions
+  english.md           -- English coaching rule
+  anti-patterns.md     -- AI anti-patterns reference
 scripts/
   setup-statusline.sh  -- install the statusline into ~/.gemini/
   statusline.sh        -- the statusline script itself
   verify-skills.sh     -- CI validator: frontmatter, versions, references
 GEMINI.md              -- project config for Gemini CLI
+CLAUDE.md              -- project config for Claude Code
+CODEX.md               -- project config for Codex (Cursor)
+AGENTS.md              -- generic rules for other AI Agents
 ```
 
-Each skill has a `SKILL.md` loaded on demand by Gemini. `skills/RESOLVER.md` is the human-readable index of which trigger maps to which skill; keep it in sync when you change a skill's scope.
+Each skill has a `SKILL.md` loaded on demand by the active AI agent. `skills/RESOLVER.md` is the human-readable index of which trigger maps to which skill; keep it in sync when you change a skill's scope.
 
 ## Background
 

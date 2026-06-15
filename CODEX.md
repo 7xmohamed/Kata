@@ -11,14 +11,14 @@ skills/
 │   ├── agents/   -- reviewer-security.md, reviewer-architecture.md
 │   └── references/  -- persona-catalog.md
 ├── design/       -- production-grade frontend UI
-├── health/       -- Gemini CLI config audit
+├── health/       -- Codex config audit
 │   └── agents/   -- inspector-context.md, inspector-control.md
 ├── hunt/         -- systematic debugging
 ├── learn/        -- research to published output
 ├── read/         -- fetch URL or PDF as Markdown
 ├── think/        -- design and validate before building
 └── write/        -- natural prose in English
-    └── references/  -- write-zh.md, write-en.md
+    └── references/  -- write-en.md
 .codex-plugin/
   marketplace.json    -- plugin registry for npx/plugin distribution
 ```

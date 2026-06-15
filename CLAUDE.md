@@ -1,6 +1,6 @@
-# Kata 1.1 ??
+# Kata 1.1 ⚔️
 
-Personal skill collection for Gemini CLI. Eight skills covering the complete engineering workflow: think, design, check, hunt, write, learn, read, health. Now with advanced Architecture, Security, and Synthesis modes.
+Personal skill collection for Claude Code. Eight skills covering the complete engineering workflow: think, design, check, hunt, write, learn, read, health. Now with advanced Architecture, Security, and Synthesis modes.
 
 ## Structure
 
@@ -11,19 +11,19 @@ skills/
 │   ├── agents/   -- reviewer-security.md, reviewer-architecture.md
 │   └── references/  -- persona-catalog.md
 ├── design/       -- production-grade frontend UI
-├── health/       -- Gemini CLI config audit
+├── health/       -- Claude Code config audit
 │   └── agents/   -- inspector-context.md, inspector-control.md
 ├── hunt/         -- systematic debugging
 ├── learn/        -- research to published output
 ├── read/         -- fetch URL or PDF as Markdown
 ├── think/        -- design and validate before building
 └── write/        -- natural prose in English
-    └── references/  -- write-zh.md, write-en.md
-.gemini-plugin/
-  marketplace.json    -- plugin registry for npx/plugin distribution
+    └── references/  -- write-en.md
+.claude-plugin/
+  marketplace.json    -- plugin registry for claude plugin distribution
 ```
 
-Each skill has a `SKILL.md` (loaded on demand by Gemini). Supporting content lives in subdirectories. `skills/RESOLVER.md` is the human-readable index of "which trigger goes to which skill"; keep it in sync when you change a skill's scope.
+Each skill has a `SKILL.md` (loaded on demand by Claude). Supporting content lives in subdirectories. `skills/RESOLVER.md` is the human-readable index of "which trigger goes to which skill"; keep it in sync when you change a skill's scope.
 
 ## Skill vs Script: Latent vs Deterministic
 
@@ -77,7 +77,7 @@ Run `./scripts/verify-skills.sh` before any commit. If the diff is non-trivial, 
 1. **技能名**: 一句话说清楚改了什么以及对用户的影响。
 2. ...
 
-Update: `npx skills add 7xmohamed/Kata@latest` · ⭐ [7xmohamed/Kata](https://github.com/7xmohamed/Kata)
+Update: `claude plugin add 7xmohamed/Kata` · ⭐ [7xmohamed/Kata](https://github.com/7xmohamed/Kata)
 ```
 
 - Each item: `**Label**: one sentence` -- bold label is the skill or module name, description leads with what changed
