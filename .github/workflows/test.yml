@@ -10,5 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y jq ripgrep python3
-      - run: make test
+        run: sudo apt-get update && sudo apt-get install -y jq ripgrep python3 shellcheck bash
+      - name: Run Shellcheck
+        run: find . -type f -name "*.sh" -exec shellcheck {} +
+      - name: Run Makefile Tests
+        run: make test
