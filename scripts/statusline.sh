@@ -70,10 +70,9 @@ fi
 # Persist live rate_limits only when present (atomic write)
 if [ "${live_five_pct:-}" != "null" ] && [ -n "${live_five_pct:-}" ] && [ -n "$input" ]; then
   mkdir -p "$CACHE_DIR"
-  printf '%s' "$input" | jq '{rate_limits: .rate_limits}' \
-    > "${CACHE_FILE}.tmp" 2>/dev/null \
-    && mv "${CACHE_FILE}.tmp" "$CACHE_FILE" 2>/dev/null \
-    || true
+  if printf '%s' "$input" | jq '{rate_limits: .rate_limits}' > "${CACHE_FILE}.tmp" 2>/dev/null; then
+    mv "${CACHE_FILE}.tmp" "$CACHE_FILE" 2>/dev/null || true
+  fi
 fi
 
 # --- Colors ---

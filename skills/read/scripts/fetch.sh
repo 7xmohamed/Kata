@@ -11,6 +11,7 @@ URL="${1:?Usage: fetch.sh <url> [proxy_url]}"
 PROXY="${2:-}"
 
 _curl() {
+  # shellcheck disable=SC2317  # called indirectly via _try_once "$@"
   if [ -n "$PROXY" ]; then
     https_proxy="$PROXY" http_proxy="$PROXY" curl -sfL "$@"
   else
