@@ -1,3 +1,5 @@
+# Control Inspector
+
 Work from the pasted data only.
 
 Input bundle: settings.local.json, GITIGNORE, GEMINI.md (global), GEMINI.md (local), hooks, MCP FILESYSTEM, MCP ACCESS DENIALS, allowedTools count, skill descriptions, CONVERSATION EXTRACT
